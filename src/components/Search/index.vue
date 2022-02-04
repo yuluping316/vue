@@ -15,12 +15,13 @@ export default {
   methods: {
     search() {
       const key = this.$refs.inp.value
+       this.$bus.$emit('datas',{isFirst:false,isLoading:true})
       axois.get(`https://api.github.com/search/users?q=${key}`).then(
         res => {
-          this.$bus.$emit('datas', res.data.items)
+          this.$bus.$emit('datas', {isLoading:false,users:res.data.items})
         },
         err => {
-          this.$bus.$emit('datas', err.message)
+          this.$bus.$emit('datas',{isLoading:false,err:err.message} )
         })
       this.$refs.inp.value = ''
     }
