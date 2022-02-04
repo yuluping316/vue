@@ -7,15 +7,24 @@
         <Foot :list="list" @all="all" @done="done" />
       </div>
     </div>
-    <div class="container">
-      <Search />
+    <div class="container" style="display:none">
+      <Search>
+        <!-- <p slot="head">ssssssssssssss</p>
+        <template v-slot:foot>
+            <p>2322222222222</p>   
+            <p>2322222222222</p>   
+        </template>-->
+        <template scope="a">
+          <button>{{ a.age }}</button>
+        </template> 
+      </Search>
       <List />
     </div>
   </div>
 </template>
 
 <script>
-import pubsub from 'pubsub-js'
+// import pubsub from 'pubsub-js'
 import Head from '@/components/Head'
 import Main from '@/components/Main'
 import Foot from '@/components/Foot'
@@ -96,14 +105,14 @@ export default {
 .card {
   float: left;
   width: 33.333%;
-  padding: .75rem;
+  padding: 0.75rem;
   margin-bottom: 2rem;
   border: 1px sol id #efefef;
   text-align: center;
 }
 
 .card > img {
-  margin-bottom: .75rem;
+  margin-bottom: 0.75rem;
   border-radius: 100px;
 }
 
