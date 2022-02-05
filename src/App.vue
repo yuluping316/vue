@@ -16,10 +16,29 @@
         </template>-->
         <template scope="a">
           <button>{{ a.age }}</button>
-        </template> 
+        </template>
       </Search>
       <List />
     </div>
+    <router-link active-class="active" to="/head?id=1">head</router-link>
+    <router-link
+      active-class="active"
+      :to="{
+        path: '/head',
+        query: {
+          id: 2
+        }
+      }"
+    >head2</router-link>
+    <br />
+    <router-link active-class="active" to="/search/3">search</router-link>
+    <router-link active-class="active" :to="{
+      name:'suo',
+      params:{
+        id:4
+      }
+    }">search2</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -95,6 +114,9 @@ export default {
 }
 </script>
 <style>
+.active {
+  background-color: pink;
+}
 .album {
   min-height: 50rem; /* Can be removed; just added for demo purposes */
   padding-top: 3rem;

@@ -1,6 +1,8 @@
 <template>
   <div class="todo-header">
     <input type="text" placeholder="请输入你的任务名称，按回车键确认" @keyup.enter="add" />
+    {{ $route.query.id }}--
+    {{ id }}
   </div>
 </template>
 
@@ -8,12 +10,19 @@
 import pubsub from 'pubsub-js'
 export default {
   name: "Head",
+  props: ["id"],
+  beforeRouteEnter(to, from, next) {
+    next()
+  },
+  beforeRouteLeave(to,from,next) {
+    next()
+  },
   methods: {
     add(e) {
       // pubsub.publish('pub',666)
-      this.$bus.$emit('bus',666)
+      this.$bus.$emit('bus', 666)
       if (e.target.value) {
-        const data = { id:Math.floor(Math.random() * 100), title: e.target.value, done: false }
+        const data = { id: Math.floor(Math.random() * 100), title: e.target.value, done: false }
         this.$emit('add', data)
         e.target.value = ''
       }

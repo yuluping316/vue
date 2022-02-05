@@ -1,14 +1,17 @@
 <template>
   <section class="jumbotron">
+    {{$route.params.id}}{{id}}<br/>
     <!-- <slot name="head"></slot> -->
     {{ $store.state.countOption.count }}|
     {{ count }}|
-    {{ $store.getters['countOption/bigCount']}}|
+    {{ $store.getters['countOption/bigCount'] }}|
     {{ bigCount }}
-    <button @click="$store.dispatch('countOption/add', 1)">add</button>
+    <button
+      @click="$store.dispatch('countOption/add', 1)"
+    >add</button>
     <button @click="add(1)">add</button>
     <button @click="$store.commit('countOption/ADD', 1)">add2</button>
-      <button @click="ADD(1)">add</button>
+    <button @click="ADD(1)">add</button>
     <h3 class="jumbotron-heading">搜索用户</h3>
     <div>
       <input type="text" placeholder="输入用户名称" ref="inp" />&nbsp;
@@ -25,14 +28,15 @@ import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: "Search",
+  props:["id"],
   data() {
     return {
       age: 18,
     }
   },
   computed: {
-    ...mapState('countOption',{ count: 'count' }),
-    ...mapGetters('countOption',['bigCount'])
+    ...mapState('countOption', { count: 'count' }),
+    ...mapGetters('countOption', ['bigCount'])
   },
   methods: {
     search() {
@@ -47,8 +51,8 @@ export default {
         })
       this.$refs.inp.value = ''
     },
-    ...mapActions('countOption',["add"]),
-    ...mapMutations('countOption',["ADD"])
+    ...mapActions('countOption', ["add"]),
+    ...mapMutations('countOption', ["ADD"])
   }
 }
 </script>
