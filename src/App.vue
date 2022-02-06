@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Test/>
     <div class="todo-container" style="display:none">
       <div class="todo-wrap">
         <Head ref="head" @add="add" />
@@ -20,7 +21,7 @@
       </Search>
       <List />
     </div>
-    <router-link active-class="active" to="/head?id=1">head</router-link>
+    <!-- <router-link active-class="active" to="/head?id=1">head</router-link>
     <router-link
       active-class="active"
       :to="{
@@ -38,7 +39,7 @@
         id:4
       }
     }">search2</router-link>
-    <router-view></router-view>
+    <router-view></router-view> -->
   </div>
 </template>
 
@@ -49,9 +50,10 @@ import Main from '@/components/Main'
 import Foot from '@/components/Foot'
 import Search from '@/components/Search'
 import List from '@/components/List'
+import Test from '@/components/Test'
 export default {
   name: "app",
-  components: { Head, Main, Foot, Search, List },
+  components: { Head, Main, Foot, Search, List, Test },
   mounted() {
     localStorage.setItem('list', JSON.stringify(this.list))
     // console.log(JSON.parse(localStorage.getItem('list')));

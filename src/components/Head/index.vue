@@ -1,8 +1,8 @@
 <template>
   <div class="todo-header">
-    <input type="text" placeholder="请输入你的任务名称，按回车键确认" @keyup.enter="add" />
-    {{ $route.query.id }}--
-    {{ id }}
+    <input type="text" placeholder="请输入你的任务名称，按回车键确认" @keyup.enter="add"  />
+    <!-- {{ $route.query.id }}-- -->
+    <!-- {{ id }} -->
   </div>
 </template>
 
