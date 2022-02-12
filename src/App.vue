@@ -1,27 +1,28 @@
 <template>
   <div id="app">
-    <Test/>
-    <div class="todo-container" style="display:none">
+    <Test2/>
+    <!-- <Test/> -->
+    <!-- <div class="todo-container">
       <div class="todo-wrap">
-        <Head ref="head" @add="add" />
+        <Head ref="head" />
         <Main :list="list" @change="change" @del="del" />
         <Foot :list="list" @all="all" @done="done" />
       </div>
-    </div>
-    <div class="container" style="display:none">
-      <Search>
+    </div> -->
+    <!-- <div class="container" style="display:none">
+       <Search> -->
         <!-- <p slot="head">ssssssssssssss</p>
         <template v-slot:foot>
             <p>2322222222222</p>   
             <p>2322222222222</p>   
         </template>-->
-        <template scope="a">
-          <button>{{ a.age }}</button>
-        </template>
-      </Search>
-      <List />
-    </div>
-    <!-- <router-link active-class="active" to="/head?id=1">head</router-link>
+        <!-- <template scope="a"> -->
+          <!-- <button>{{ a.age }}</button> -->
+        <!-- </template> -->
+      <!-- </Search> -->
+      <!-- <List /> -->
+    <!-- </div> 
+     <router-link active-class="active" to="/head?id=1">head</router-link>
     <router-link
       active-class="active"
       :to="{
@@ -51,68 +52,70 @@ import Foot from '@/components/Foot'
 import Search from '@/components/Search'
 import List from '@/components/List'
 import Test from '@/components/Test'
+import Test2 from '@/components/Test2'
 export default {
   name: "app",
-  components: { Head, Main, Foot, Search, List, Test },
-  mounted() {
-    localStorage.setItem('list', JSON.stringify(this.list))
-    // console.log(JSON.parse(localStorage.getItem('list')));
-    // this.$refs.head.$on('add',function(){
-    // // })
+  components: { Head, Main, Foot, Search, List, Test,Test2 },
+  // mounted() {
+  //   localStorage.setItem('list', JSON.stringify(this.list))
+  //   //$once
+  //   this.$refs.head.$on('add', (v) => {
+  //     this.list = [v, ...this.list]
+  //   })
     // this.$bus.$on('bus',function(x){
     //   console.log(x);
     // })
     // pubsub.subscribe('pub',function(_,y){
     // })
-  },
-  watch: {
-    list: {
-      deep: true,
-      handler(v) {
-        localStorage.setItem('list', JSON.stringify(v))
-      }
-    }
-  },
-  data() {
-    return {
-      // list: [
-      //   { id: '01', title: '吃饭', done: true },
-      //   { id: '02', title: '睡觉', done: false },
-      //   { id: '03', title: '打游戏', done: false },
-      //   { id: '04', title: '唱歌', done: false },
-      // ]
-      list: JSON.parse(localStorage.getItem('list')) || []
-    }
-  },
-  computed: {
-  },
-  methods: {
-    add(v) {
-      this.list = [v, ...this.list]
-    },
-    change(v) {
-      this.list.map((e) => {
-        if (e.id == v) {
-          e.done = !e.done
-        }
-      })
-    },
-    del(v) {
-      this.list = this.list.filter((e) => {
-        return e.id !== v
-      })
-    },
-    all(v) {
-      this.list.map((e) => {
-        e.done = v
-      })
-    },
-    done() {
-      this.list = this.list.filter((e) => {
-        return e.done == false
-      })
-    }
-  }
+  // },
+  // watch: {
+  //   list: {
+  //     deep: true,
+  //     handler(v) {
+  //       localStorage.setItem('list', JSON.stringify(v))
+  //     }
+  //   }
+  // },
+  // data() {
+  //   return {
+  //     // list: [
+  //     //   { id: '01', title: '吃饭', done: true },
+  //     //   { id: '02', title: '睡觉', done: false },
+  //     //   { id: '03', title: '打游戏', done: false },
+  //     //   { id: '04', title: '唱歌', done: false },
+  //     // ]
+  //     list: JSON.parse(localStorage.getItem('list')) || []
+  //   }
+  // },
+  // computed: {
+  // },
+  // methods: {
+  //   // add(v) {
+  //   //   this.list = [v, ...this.list]
+  //   // },
+  //   change(v) {
+  //     this.list.map((e) => {
+  //       if (e.id == v) {
+  //         e.done = !e.done
+  //       }
+  //     })
+  //   },
+  //   del(v) {
+  //     this.list = this.list.filter((e) => {
+  //       return e.id !== v
+  //     })
+  //   },
+  //   all(v) {
+  //     this.list.map((e) => {
+  //       e.done = v
+  //     })
+  //   },
+  //   done() {
+  //     this.list = this.list.filter((e) => {
+  //       return e.done == false
+  //     })
+  //   }
+  // }
 }
 </script>
 <style>

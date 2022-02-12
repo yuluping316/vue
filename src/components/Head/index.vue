@@ -11,16 +11,16 @@ import pubsub from 'pubsub-js'
 export default {
   name: "Head",
   props: ["id"],
-  beforeRouteEnter(to, from, next) {
-    next()
-  },
-  beforeRouteLeave(to,from,next) {
-    next()
-  },
+  // beforeRouteEnter(to, from, next) {
+  //   next()
+  // },
+  // beforeRouteLeave(to,from,next) {
+  //   next()
+  // },
   methods: {
     add(e) {
       // pubsub.publish('pub',666)
-      this.$bus.$emit('bus', 666)
+      // this.$bus.$emit('bus', 666)
       if (e.target.value) {
         const data = { id: Math.floor(Math.random() * 100), title: e.target.value, done: false }
         this.$emit('add', data)

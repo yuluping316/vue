@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3180116 */
+  src: url('iconfont.woff2?t=1644676181676') format('woff2'),
+       url('iconfont.woff?t=1644676181676') format('woff'),
+       url('iconfont.ttf?t=1644676181676') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-qzone:before {
+  content: "\e642";
+}
+
+.icon-aiqiyi:before {
+  content: "\e607";
+}
+
+.icon-changyonglogo28:before {
+  content: "\e715";
+}
+
+.icon-changyonglogo29:before {
+  content: "\e716";
+}
+
+.icon-changyonglogo33:before {
+  content: "\e71a";
+}
+
+.icon-chunqiuhangkong_C:before {
+  content: "\e628";
+}
+
+.icon-aiqiyi-:before {
+  content: "\e62a";
+}
+
